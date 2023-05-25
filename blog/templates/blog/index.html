@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 
 {% load static %}
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Blog</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
-    </head>
-    <body>
-        <h1>Blog</h1>
-        {% for area in areas %}
-            <h1>{{ area.nome }}</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/css/global.css' %}">
+</head>
+<body>
+    <h1>Blog</h1>
+    {% for area in areas %}
+        <h1>{{ area.nome }}</h1>
+        <div>
+        {% for artigo in area.artigo_set.all %}
             <div>
-            {% for artigo in area.artigo_set.all %}
-                <div>                        
-                    <p>{{ artigo.nome }}</p>
-                    <p>{{ artigo.texto|truncatechars:25 }}</p>
-                </div>
-            {% endfor %}
+                <p>{{ artigo.nome }}</p>
+                <p>{{ artigo.texto|truncatechars:25 }}</p>
             </div>
         {% endfor %}
-    </body>
+        </div>
+    {% endfor %}
+</body>
 </html>
