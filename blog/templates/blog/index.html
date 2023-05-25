@@ -18,13 +18,15 @@
     <body>
         <h1>Blog</h1>
         {% for area in areas %}
-            <br>
             <h1>{{ area.nome }}</h1>
+            <div>
             {% for artigo in area.artigo_set.all %}
-                <p>{{ artigo.nome }}</p>
-                <p>{{ artigo.texto|truncatechars:25 }}</p>
-                <br>
+                <div>                        
+                    <p>{{ artigo.nome }}</p>
+                    <p>{{ artigo.texto|truncatechars:25 }}</p>
+                </div>
             {% endfor %}
+            </div>
         {% endfor %}
     </body>
 </html>
