@@ -1,8 +1,9 @@
 from django.forms import ModelForm
-from .models import Autor, Artigo
+
+from .models import Artigo
 
 
-class AutorForm(ModelForm):
+class ArtigoForm(ModelForm):
     class Meta:
-        model = Autor
+        model = Artigo
         fields = '__all__'
