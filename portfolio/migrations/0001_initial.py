@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('nome', models.CharField(max_length=80)),
                 ('texto', models.TextField()),
                 ('imagem', models.ImageField(blank=True, null=True, upload_to='imagens/')),
-                ('area', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.area')),
+                ('area', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='portfolio.area')),
             ],
         ),
         migrations.CreateModel(
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('autor', models.CharField(max_length=80)),
                 ('texto', models.TextField()),
                 ('likes', models.IntegerField(default=0)),
-                ('artigo', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.artigo')),
+                ('artigo', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='portfolio.artigo')),
             ],
         ),
         migrations.CreateModel(
@@ -44,12 +44,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nome', models.CharField(max_length=80)),
-                ('areas', models.ManyToManyField(to='blog.area')),
+                ('areas', models.ManyToManyField(to='portfolio.area')),
             ],
         ),
         migrations.AddField(
             model_name='artigo',
             name='autor',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.autor'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='portfolio.autor'),
         ),
     ]
