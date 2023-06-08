@@ -1,28 +1,181 @@
 * {
-    box-sizing: border-box;
-
     margin: 0;
     padding: 0;
-    border: 0;
 
-    font-family: sans-serif;
+    box-sizing: border-box;
+
+    font-family: Ethnocentric;
 }
 
-h1 + div {
+@font-face {
+    font-family: Ethnocentric;
+    src: url('../fonts/ethnocentric.rg-italic.otf');
+}
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.center {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.center * {
+    pointer-events: all;
+}
+
+.container {
     display: flex;
     flex-direction: column;
 
+    min-height: 100vh;
+    width: 100%;
+
+    padding: 7% 2% 2% 2%;
+
+    background-color: white;
+}
+
+.container > h1 {
+    font-size: 1.8em;
+}
+
+.container > .content {
+    margin: auto 0;
+}
+
+.container.dark {
+    background-color: rgb(70, 70, 70);
+}
+
+#header {
+    display: flex;
     align-items: center;
+
+    padding: 5px 4px;
+
+    position: fixed;
+    top: 0%;
+
+    width: 100%;
+    height: 40px;
+
+    z-index: 1;
+
+    transition: 0.3s;
 }
 
-h1 + div > div {
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
-
-    margin-bottom: 1%;
+#header a {
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
 }
 
-h1 + div > div:last-child {
-    margin-bottom: 0;
+#header a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.header-scrolled {
+    background-color: white;
+}
+
+#header.dark a {
+    color: white;
+}
+
+#header.dark {
+    background-color: transparent;
+}
+
+.header-scrolled.dark {
+    background-color: rgba(0, 0, 0, 0.5)!important;
+    backdrop-filter: blur(10px);
+}
+
+#menu {
+    display: none;
+    overflow: hidden;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.image-button {
+    background-color: transparent;
+    border: none;
+}
+
+.image-button:hover {
+    cursor: pointer;
+}
+
+.material-symbols-outlined.dark {
+    color: white;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 13% 2%;
+    }
+
+    #menu {
+        display: flex;
+
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        background-color: black;
+        padding: 5%;
+        width: 100%;
+        flex-flow: column;
+
+        transform: translateY(-100%);
+        filter: opacity(0%);
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    #menu.open {
+        transform: translateY(0);
+        filter: opacity(100%);
+    }
+
+    #menu > * {
+        position: relative;
+    }
+
+    #menu > *:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid white;
+    }
+
+    #menu > a {
+        text-decoration: none!important;
+    }
+    
+    #menu > button {
+        text-align: end;
+    }
+
+    #menu-toggle {
+        display: inline-block;
+    }
 }

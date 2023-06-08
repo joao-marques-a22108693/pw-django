@@ -1,0 +1,66 @@
+#first {
+    min-height: 100vh;
+}
+
+#second {
+    min-height: 50vh;
+}
+
+#second > div {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#second > div > input {
+    width: 100%;
+}
+
+#calc {
+    margin: 5% auto;
+    display: grid;
+
+    row-gap: 5%;
+    column-gap: 2%;
+    grid-template-rows: auto 32px 32px 32px 32px 32px;
+    grid-template-columns: auto auto auto auto;
+
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: 0 16px 1em 0.5em rgba(0, 0, 0, 0.3);
+
+    padding: 15px;
+}
+
+#calc > * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#resultado {
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+#calc > button {
+    appearance: none;
+    background-color: lightgray;
+    border-radius: 5px;
+    border: none;
+    margin: 2px;
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+#calc > button:hover {
+    background-color: darkgray;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+#calc > button:active {
+    transition: 0s;
+    background-color: rgb(70, 70, 70);
+}

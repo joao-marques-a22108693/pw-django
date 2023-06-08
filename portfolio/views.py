@@ -6,9 +6,13 @@ from .forms import ArtigoForm
 
 # Create your views here.
 
-def index_view(request):
+def blog_view(request):
     areas = Area.objects.all()
-    return render(request, 'portfolio/index.html', context={'areas': areas})
+    return render(request, 'portfolio/blog.html', context={'areas': areas})
+
+
+def index_view(request):
+    return render(request, 'portfolio/index.html')
 
 
 def admin_view(request):

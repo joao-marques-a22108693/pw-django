@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/global.css' %}">
+</head>
+<body>
+    <h1>Blog</h1>
+    {% for area in areas %}
+        <h1>{{ area.nome }}</h1>
+        <div>
+        {% for artigo in area.artigo_set.all %}
+            <div>
+                <p>{{ artigo.nome }}</p>
+                <p>{{ artigo.texto|truncatechars:25 }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>
