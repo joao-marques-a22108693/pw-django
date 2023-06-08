@@ -8,11 +8,11 @@ from .forms import ArtigoForm
 
 def index_view(request):
     areas = Area.objects.all()
-    return render(request, 'blog/index.html', context={'areas': areas})
+    return render(request, 'portfolio/index.html', context={'areas': areas})
 
 
 def admin_view(request):
-    return render(request, 'blog/admin.html')
+    return render(request, 'portfolio/admin.html')
 
 
 def new_article_view(request):
@@ -22,4 +22,4 @@ def new_article_view(request):
 
         return redirect('index')
 
-    return render(request, 'blog/new_article.html', context={'form': ArtigoForm()})
+    return render(request, 'portfolio/new_article.html', context={'form': ArtigoForm()})
