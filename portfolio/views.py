@@ -15,6 +15,10 @@ def index_view(request):
     return render(request, 'portfolio/index.html')
 
 
+def playground_view(request):
+    return render(request, 'portfolio/playground.html')
+
+
 def admin_view(request):
     return render(request, 'portfolio/admin.html')
 

@@ -1,0 +1,51 @@
+{% extends 'portfolio/skel.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'portfolio/css/playground.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="pg-first" class="container dark">
+        <span id="date"></span>
+        <div id="calc">
+            <input type="text" id="resultado">
+            <button>7</button> <button>8</button> <button>9</button> <button>+</button>
+            <button>4</button> <button>5</button> <button>6</button> <button>-</button>
+            <button>1</button> <button>2</button> <button>3</button> <button>*</button>
+            <button id="clear">C</button> <button>0</button> <button id="calcButton">=</button> <button>/</button>
+        </div>
+    </div>
+
+    <div id="pg-second" class="container dark">
+        <div>
+            <label for="nome">Insira o seu nome:</label>
+            <br>
+            <input type="text" name="nome" id="nome">
+        </div>
+    </div>
+
+    <div id="pg-third" class="container dark">
+        <div class="container dark" id="img-container">
+            <img src="{% static 'portfolio/img/bg.jpg' %}" alt="">
+
+            <span></span>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="img-txt">Insira uma frase sobre a imagem:</label>
+            <br>
+            <input type="text" id="img-txt">
+        </div>
+    </div>
+
+    <div id="pg-forth" class="container dark">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/IWVJq-4zW24?controls=0?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</main>
+
+<script src="{% static 'portfolio/js/playground.js' %}"></script>
+{% endblock %}

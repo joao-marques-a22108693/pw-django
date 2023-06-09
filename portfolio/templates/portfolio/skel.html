@@ -21,14 +21,14 @@
         }
     </style>
 
-    {% block head %}{% endblock head %}
+    {% block head %}{% endblock %}
 </head>
 <body class="dark">
     <header id="header" class="dark">
         <a href="./index.html">JTM</a>
         
         <div class="center" id="links">
-            {% block header %}{% endblock header %}
+            {% block header %}{% endblock %}
         </div>
 
         <div class="right">
@@ -45,12 +45,11 @@
             <button class="image-button" onclick="toggle_menu()">
                 <span class="material-symbols-outlined" style="color: white;">close</span>
             </button>
-            {% block menu %}{% endblock menu %}
+            {% block menu %}{% endblock %}
         </div>
     </header>
 
-    {% block content %}{% endblock content %}
+    {% block content %}{% endblock %}
 
-    <script src="{% static 'portfolio/js/index.js' %}"></script>
     <script src="{% static 'portfolio/js/theme.js' %}"></script>
 </body>

@@ -3,21 +3,21 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}">
-{% endblock head %}
+{% endblock %}
 
 {% block header %}
 <a href="#second">Sobre</a>
 <a href="#third">Projetos</a>
 <a href="#forth">PW</a>
-<a href="./playground.html">Playground</a>
-{% endblock header %}
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
 
 {% block menu %}
 <a href="#second">Sobre</a>
 <a href="#third">Projetos</a>
 <a href="#forth">PW</a>
-<a href="./playground.html">Playground</a>
-{% endblock menu %}
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
 
 {% block content %}
 <div class="parent">
@@ -92,4 +92,6 @@
 <footer class="dark">
     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.</span>
 </footer>
-{% endblock content %}
+
+<script src="{% static 'portfolio/js/index.js' %}"></script>
+{% endblock %}
