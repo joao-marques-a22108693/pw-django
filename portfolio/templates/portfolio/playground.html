@@ -1,10 +1,6 @@
 {% extends 'portfolio/skel.html' %}
 {% load static %}
 
-{% block head %}
-<link rel="stylesheet" href="{% static 'portfolio/css/playground.css' %}">
-{% endblock %}
-
 {% block content %}
 <main>
     <div id="pg-first" class="container dark">
@@ -30,7 +26,7 @@
         <div class="container dark" id="img-container">
             <img src="{% static 'portfolio/img/bg.jpg' %}" alt="">
 
-            <span></span>
+            <span id="img-lbl"></span>
         </div>
 
         <br>
