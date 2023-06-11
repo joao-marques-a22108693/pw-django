@@ -4,7 +4,7 @@
 
     box-sizing: border-box;
 
-    font-family: Ethnocentric;
+    font-family: Ethnocentric, sans-serif;
 }
 
 @font-face {
@@ -160,8 +160,8 @@
         display: flex;
 
         position: absolute;
-        top: 0%;
-        left: 0%;
+        top: 0;
+        left: 0;
         background-color: black;
         padding: 5%;
         width: 100%;
