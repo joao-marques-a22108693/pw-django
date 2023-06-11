@@ -22,7 +22,7 @@
         <a href="{% url 'new' %}" class="right vert-end">Novo artigo</a>
     </div>
     {% for area in areas %}
-        <h1>{{ area.nome }}</h1>
+        <h2>{{ area.nome }}</h2>
         <div>
         {% for artigo in area.artigo_set.all %}
             <div>
