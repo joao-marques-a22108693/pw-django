@@ -32,7 +32,7 @@ clearButton.onclick = function() {
 
 img_txt.onkeypress = function(event) {
     if (event.which == 13) {
-        document.querySelector('#img-lbl').innerHTML = img_txt.value;
+        document.querySelector('#img-container > span').innerHTML = img_txt.value
     }
 };
 
