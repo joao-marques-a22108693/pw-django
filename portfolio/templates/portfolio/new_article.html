@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-
+{% extends 'portfolio/skel.html' %}
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="{% static 'portfolio/css/global.css' %}">
-</head>
-<body>
-    <h1>Blog</h1>
+{% block header %}
+<a href="{% url 'index' %}#second">Sobre</a>
+<a href="{% url 'index' %}#third">Projetos</a>
+<a href="{% url 'index' %}#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block menu %}
+<a href="{% url 'index' %}#second">Sobre</a>
+<a href="{% url 'index' %}#third">Projetos</a>
+<a href="{% url 'index' %}#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block content %}
+<div class="container dark">
+    <div class="row">
+        <h1>Novo artigo</h1>
+    </div>
 
     <form action="{% url 'new' %}" method="POST">
         {% csrf_token %}
@@ -17,5 +27,7 @@
 
         <input type="submit" value="Submeter">
     </form>
-</body>
-</html>
+</div>
+
+<script src="{% static 'portfolio/js/global.js' %}"></script>
+{% endblock %}

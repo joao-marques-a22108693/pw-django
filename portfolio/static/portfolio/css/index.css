@@ -20,7 +20,7 @@ body.light {
 
 .parent > img {
     position: absolute;
-    bottom: 0%;
+    bottom: 0;
     right: 50%;
     transform: translate(50%, -50%);
 }
@@ -47,7 +47,7 @@ body.light {
 @keyframes anim {
     0% {
         transform: translateY(-100%);
-        opacity: 0%;
+        opacity: 0;
     }
     100% {
         transform: translateY(0%);
@@ -106,15 +106,4 @@ footer {
     width: 100%;
 
     align-items: center;
-}
-
-@media screen and (max-width: 600px) {
-    #links {
-        display: none;
-    }
-
-    #third > .content, #forth > .content {
-        flex-flow: column;
-        align-items: center;
-    }
 }

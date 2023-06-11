@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-
+{% extends 'portfolio/skel.html' %}
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-    <link rel="stylesheet" href="{% static 'portfolio/css/global.css' %}">
-</head>
-<body>
-    <h1>Blog</h1>
+{% block header %}
+<a href="{% url 'index' %}/#second">Sobre</a>
+<a href="{% url 'index' %}/#third">Projetos</a>
+<a href="{% url 'index' %}/#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block menu %}
+<a href="{% url 'index' %}/#second">Sobre</a>
+<a href="{% url 'index' %}/#third">Projetos</a>
+<a href="{% url 'index' %}/#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block content %}
+<div class="container dark">
+    <div class="row">
+        <h1>Blog</h1>
+        <a href="{% url 'new' %}" class="right vert-end">Novo artigo</a>
+    </div>
     {% for area in areas %}
         <h1>{{ area.nome }}</h1>
         <div>
@@ -21,5 +32,7 @@
         {% endfor %}
         </div>
     {% endfor %}
-</body>
-</html>
+</div>
+
+<script src="{% static 'portfolio/js/global.js' %}"></script>
+{% endblock %}

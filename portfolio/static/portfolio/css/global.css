@@ -35,6 +35,20 @@
     pointer-events: all;
 }
 
+.vert-end {
+    align-self: end;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -129,6 +143,15 @@
 }
 
 @media screen and (max-width: 600px) {
+    #links {
+        display: none;
+    }
+
+    #third > .content, #forth > .content {
+        flex-flow: column;
+        align-items: center;
+    }
+    
     .container {
         padding: 13% 2%;
     }

@@ -7,7 +7,7 @@ for (const e of menu.children) {
 }
 
 window.onscroll = function() {
-    if (scrollY == 0) {
+    if (scrollY === 0) {
         header.classList.remove(['header-scrolled']);
     } else if (!header.classList.contains('header-scrolled')) {
         header.classList.add(['header-scrolled']);

@@ -16,6 +16,15 @@ class Autor(models.Model):
         return self.nome
 
 
+class Pessoa(models.Model):
+    nome = models.CharField(max_length=80)
+    linkedin = models.TextField(null=True, blank=True)
+    portfolio = models.TextField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.nome
+
+
 class Artigo(models.Model):
     nome = models.CharField(max_length=80)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
@@ -35,3 +44,18 @@ class Comentario(models.Model):
 
     def __str__(self) -> str:
         return f'{self.artigo.nome}: {self.autor}: {self.likes}'
+
+
+class Cadeira(models.Model):
+    nome = models.TextField()
+
+
+class Projeto(models.Model):
+    participantes = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    nome = models.TextField()
+    descricao = models.TextField(max_length=500)
+    imagem = models.ImageField(upload_to='imagens/', null=True, blank=True)
+    ano = models.IntegerField()
+    cadeira = models.ForeignKey(Cadeira, null=True, blank=True, on_delete=models.CASCADE)
+    git = models.TextField(null=True, blank=True)
+
