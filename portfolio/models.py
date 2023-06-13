@@ -59,3 +59,10 @@ class Projeto(models.Model):
     cadeira = models.ForeignKey(Cadeira, null=True, blank=True, on_delete=models.CASCADE)
     git = models.TextField(null=True, blank=True)
 
+
+class PrevisaoMetereologica(models.Model):
+    temp_min = models.IntegerField()
+    temp_max = models.IntegerField()
+
+    def __str__(self):
+        return f'Temperatura Mínima: {self.temp_min}, Temperatura Máxima: {self.temp_max}'
