@@ -9,7 +9,6 @@
 <div class="container dark">
     <div class="row">
         <h1>Blog</h1>
-        <a href="{% url 'new' %}" class="right vert-end">Novo artigo</a>
     </div>
 
     <div class="artigo-container">
@@ -17,7 +16,19 @@
         {% if artigo.imagem %}
             <img src="{{ artigo.imagem.url }}" alt="" class="artigo-imagem">
         {% endif %}
-        <p>{{ artigo.texto }}/p>
+        <p>{{ artigo.texto }}</p>
     </div>
+
+    <button onclick="comecarComentario()" style="width: fit-content; margin: 2% auto;">Novo comentário</button>
+
+    <form action="{% url 'comment' artigo.id %}" name="form" class="hidden">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Submeter!">
+    </form>
 </div>
+
+<script src="{% static 'portfolio/js/article.js' %}"></script>
 {% endblock %}
