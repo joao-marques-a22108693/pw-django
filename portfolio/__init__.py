@@ -1,12 +1,15 @@
+import os
 from threading import Thread
 from time import sleep
 
 from bs4 import BeautifulSoup
 import requests
 
+from matplotlib import pyplot as plot
+
 
 def scrape():
-    sleep(1)
+    sleep(5)
 
     from .models import PrevisaoMetereologica
 
@@ -15,9 +18,6 @@ def scrape():
 
         temp_min = [t.text[:-1] for t in scraper.find_all(class_='minima')[:7]]
         temp_max = [t.text[:-1] for t in scraper.find_all(class_='maxima')[:7]]
-
-        print(temp_min)
-        print(temp_max)
 
         temps = list(zip(temp_min, temp_max))
 
@@ -34,7 +34,15 @@ def scrape():
                 objs[temp].temp_max = temps[temp][0]
                 objs[temp].save()
 
+        labels = [str(n) for n in range(1, len(temps) + 1)]
+
+        plot.plot(labels, temp_min)
+        plot.plot(labels, temp_max)
+
+        dirname = os.path.dirname(__file__)
+        plot.savefig(os.path.join(dirname, '../static/portfolio/img/tempo.png'))
+
         sleep(3600)
 
 
-# Thread(target=scrape).start()
+Thread(target=scrape, daemon=True).start()

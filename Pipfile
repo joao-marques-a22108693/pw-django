@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 beautifulsoup4 = "*"
 requests = "*"
+matplotlib = "*"
 
 [dev-packages]
 

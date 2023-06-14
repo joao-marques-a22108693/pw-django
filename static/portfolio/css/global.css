@@ -80,7 +80,7 @@
     padding: 5px 4px;
 
     position: fixed;
-    top: 0%;
+    top: 0;
 
     width: 100%;
     height: 40px;
@@ -226,7 +226,7 @@ body.light {
 
 .parent > img {
     position: absolute;
-    bottom: 0%;
+    bottom: 0;
     right: 50%;
     transform: translate(50%, -50%);
 }
@@ -246,6 +246,7 @@ body.light {
 #insp {
     font-size: larger;
     font-style: italic;
+    text-align: center;
 
     animation: 2s anim cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -253,7 +254,7 @@ body.light {
 @keyframes anim {
     0% {
         transform: translateY(-100%);
-        opacity: 0%;
+        opacity: 0;
     }
     100% {
         transform: translateY(0%);

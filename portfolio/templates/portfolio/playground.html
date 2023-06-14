@@ -1,6 +1,9 @@
 {% extends 'portfolio/skel.html' %}
 {% load static %}
 
+{% block header %}{% endblock %}
+{% block menu %}{% endblock %}
+
 {% block content %}
 <main>
     <div id="pg-first" class="container dark">
@@ -12,6 +15,10 @@
             <button>1</button> <button>2</button> <button>3</button> <button>*</button>
             <button id="clear">C</button> <button>0</button> <button id="calcButton">=</button> <button>/</button>
         </div>
+    </div>
+
+    <div class="container dark" style="min-height: unset">
+        <img src="{% static 'portfolio/img/tempo.png' %}" alt="" style="width: 30%; margin: 0 auto;">
     </div>
 
     <div id="pg-second" class="container dark">

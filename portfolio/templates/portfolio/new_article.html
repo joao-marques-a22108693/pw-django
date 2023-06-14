@@ -21,7 +21,7 @@
         <h1>Novo artigo</h1>
     </div>
 
-    <form action="{% url 'new' %}" method="POST">
+    <form action="{% url 'new' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

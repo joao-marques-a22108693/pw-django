@@ -1,0 +1,23 @@
+{% extends 'portfolio/skel.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container dark">
+    <div class="row">
+        <h1>Blog</h1>
+        <a href="{% url 'new' %}" class="right vert-end">Novo artigo</a>
+    </div>
+
+    <div class="artigo-container">
+        <h2>{{ artigo.nome }}</h2>
+        {% if artigo.imagem %}
+            <img src="{{ artigo.imagem.url }}" alt="" class="artigo-imagem">
+        {% endif %}
+        <p>{{ artigo.texto }}/p>
+    </div>
+</div>
+{% endblock %}

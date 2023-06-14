@@ -5,20 +5,6 @@
 <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
 {% endblock %}
 
-{% block header %}
-<a href="{% url 'index' %}/#second">Sobre</a>
-<a href="{% url 'index' %}/#third">Projetos</a>
-<a href="{% url 'index' %}/#forth">PW</a>
-<a href="{% url 'playground' %}">Playground</a>
-{% endblock %}
-
-{% block menu %}
-<a href="{% url 'index' %}/#second">Sobre</a>
-<a href="{% url 'index' %}/#third">Projetos</a>
-<a href="{% url 'index' %}/#forth">PW</a>
-<a href="{% url 'playground' %}">Playground</a>
-{% endblock %}
-
 {% block content %}
 <div class="container dark">
     <div class="row">
@@ -30,12 +16,17 @@
         <div class="artigo-container">
         {% for artigo in area.artigo_set.all %}
             <div class="artigo">
-                <p>{{ artigo.nome }}</p>
-                <p>{{ artigo.texto|truncatechars:100 }}</p>
-            </div>
-            <div class="artigo">
-                <p>{{ artigo.nome }}</p>
-                <p>{{ artigo.texto|truncatechars:100 }}</p>
+                {% if artigo.imagem %}
+                    <img src="{{ artigo.imagem.url }}" alt="">
+                {% endif %}
+                <div>
+                    <a href="{% url 'article' artigo.id %}"><h2>{{ artigo.nome }}</h2></a>
+                    <p>{{ artigo.texto }}</p>
+                </div>
+                <div class="like">
+                    <img src="{% static 'portfolio/img/like.png' %}" alt="" onclick="alert('alert')">
+                    <span>{{ artigo.likes }}</span>
+                </div>
             </div>
         {% endfor %}
         </div>

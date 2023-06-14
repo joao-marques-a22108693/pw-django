@@ -28,7 +28,12 @@
         <a href="{% url 'index' %}">JTM</a>
         
         <div class="center" id="links">
-            {% block header %}{% endblock %}
+            {% block header %}
+            <a href="{% url 'index' %}#second">Sobre</a>
+            <a href="{% url 'index' %}#third">Projetos</a>
+            <a href="{% url 'index' %}#forth">PW</a>
+            <a href="{% url 'playground' %}">Playground</a>
+            {% endblock %}
         </div>
 
         <div class="right">
@@ -45,11 +50,22 @@
             <button class="image-button" onclick="toggle_menu()">
                 <span class="material-symbols-outlined" style="color: white;">close</span>
             </button>
-            {% block menu %}{% endblock %}
+            {% block menu %}
+            <a href="{% url 'index' %}/#second">Sobre</a>
+            <a href="{% url 'index' %}/#third">Projetos</a>
+            <a href="{% url 'index' %}/#forth">PW</a>
+            <a href="{% url 'playground' %}">Playground</a>
+            {% endblock %}
         </div>
     </header>
 
     {% block content %}{% endblock %}
+
+    {% block footer %}
+        <footer class="dark">
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.</span>
+        </footer>
+    {% endblock %}
 
     <script src="{% static 'portfolio/js/theme.js' %}"></script>
 </body>

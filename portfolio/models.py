@@ -31,6 +31,7 @@ class Artigo(models.Model):
     texto = models.TextField()
     imagem = models.ImageField(upload_to='imagens/', null=True, blank=True)
     area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    likes = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return f'{self.autor.nome}: {self.nome}'

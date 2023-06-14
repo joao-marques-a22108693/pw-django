@@ -1,0 +1,82 @@
+.artigo p {
+    font-size: small;
+}
+
+.artigo p:first-child {
+    font-size: larger;
+}
+
+.artigo {
+    display: flex;
+    flex-direction: row;
+
+    height: 8vh;
+
+    background-color: lightgray;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 0.5%;
+}
+
+.artigo * {
+    color: black;
+}
+
+.artigo.light {
+    background-color: darkgray;
+}
+
+.artigo-container {
+    width: 50vw;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.artigo-cartao {
+}
+
+.artigo > img {
+    width: 5%;
+}
+
+.artigo > div {
+    max-width: 60%;
+    padding: 1.25%;
+}
+
+.artigo-imagem {
+    width: 25%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.like {
+    position: relative;
+    padding: 0;
+
+    width: 8%;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.like > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.like > span {
+    position: absolute;
+    margin-top: 25%;
+
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
+
+    left: 0;
+    right: 0;
+}
