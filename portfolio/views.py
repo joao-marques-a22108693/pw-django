@@ -2,10 +2,12 @@ import json
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.contrib.auth.models import AnonymousUser, User
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
-from .models import Area, Artigo, Comentario
+from .models import Area, Artigo, Comentario, Projeto
 from .forms import ArtigoForm, ComentarioForm
 
 
@@ -17,7 +19,7 @@ def blog_view(request):
 
 
 def index_view(request):
-    return render(request, 'portfolio/index.html')
+    return render(request, 'portfolio/index.html', context={'projects': Projeto.objects.all()})
 
 
 def playground_view(request):
@@ -81,15 +83,16 @@ def comment_like_view(request, comentario_id):
     return HttpResponse(str(comentario.likes))
 
 
-def login_view(request):
-    if request.method == 'POST':
+@csrf_exempt
+def login_view(request, url='index'):
+    if request.method == 'POST' and request.POST.get('username', None) and request.POST.get('password', None):
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
 
-        if user is None:
-            return redirect('login')
+        if type(user) is not User:
+            return render(request, 'portfolio/login.html', context={'next': request.POST.get('next', None)})
 
         login(request, user)
 
-        return redirect('index')
+        return redirect(request.POST['next'] if request.POST.get('next', None) else url)
 
-    return render(request, 'portfolio/login.html')
+    return render(request, 'portfolio/login.html', context={'next': request.GET.get('next', None)})

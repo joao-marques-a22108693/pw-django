@@ -11,5 +11,6 @@ urlpatterns = [
     path("blog/comment/<int:comentario_id>/like", views.comment_like_view, name="comment_like"),
     path("admin/", views.admin_view, name="admin"),
     path("new/", views.new_article_view, name="new"),
-    path("login/", views.login_view, name="login")
+    path("login/", views.login_view, name="login"),
+    path("login/<str:url>", views.login_view, name="login_args")
 ]

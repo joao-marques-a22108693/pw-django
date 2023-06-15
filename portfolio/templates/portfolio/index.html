@@ -13,22 +13,22 @@
 <article class="dark container" id="second">
     <h1>Sobre</h1>
 
-    <div class="content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dignissimos totam quos obcaecati ullam nihil quisquam ad maiores dolorum eveniet cupiditate enim a saepe, et ipsum dolores iure corrupti? Ab.
-        Eligendi at fugiat, voluptatum quasi nisi iure odit debitis eos dolores corrupti nam, adipisci inventore neque amet quae blanditiis aliquid maxime ea magni itaque distinctio, expedita placeat animi impedit? Porro.
-        Quasi incidunt asperiores excepturi cum ipsa! Illum aperiam dolorem, laborum animi numquam dolore ducimus eaque velit, porro eius quis molestiae sed quam debitis in maiores exercitationem recusandae ullam amet corporis.
-        Repellendus obcaecati maiores totam nobis eum repudiandae laborum ipsa esse soluta, error odio ratione, ea ex hic iusto? Quae eveniet eaque adipisci tempora facilis delectus quos enim eum, cum voluptates.
-        Perferendis ducimus nisi, aut explicabo modi non cupiditate vero. Molestias nulla in a beatae mollitia reprehenderit, ex nemo, laboriosam maiores architecto sequi possimus repudiandae! Vero dolores quod nihil cupiditate nulla.
-        Officia reiciendis odio nam non, possimus provident dolorum sint ab explicabo dolores laudantium magni quia expedita incidunt reprehenderit fugit, culpa nihil nulla obcaecati facilis quos fuga eaque alias! Mollitia, modi.
-        Deleniti, nihil mollitia voluptatibus ullam ab in quibusdam blanditiis. Impedit architecto explicabo at et deleniti repellat laboriosam magni distinctio, cum, eligendi est, obcaecati nihil. Ipsum sit optio cumque harum nam.
-        Facilis aperiam saepe earum. Placeat, totam repudiandae nihil impedit, quasi illum aspernatur quis beatae quos consequuntur reiciendis? Dolorum libero perferendis quisquam et illo labore ratione. Sequi voluptate rem natus inventore!
-        Cum alias laboriosam, commodi sapiente autem ex sunt corporis optio illum molestiae minus, rerum vitae et sit possimus magni? Corrupti ratione sunt saepe inventore dolore. Accusantium obcaecati corrupti numquam mollitia!
-    </div>
-
     <h2>Educação</h2>
 
     <div class="content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae suscipit quasi ea, mollitia praesentium porro? Odio harum mollitia aspernatur enim voluptas alias laudantium dolore, reiciendis, ab quas consectetur nemo officiis.
+        <ul>
+            <li>Secundário: Escola Secundária Ibn Mucana</li>
+            <li>Curso: Engenharia Informática 2º Ano ULHT</li>
+        </ul>
+    </div>
+
+    <h2>Aptidões</h2>
+
+    <div class="content">
+        <ul>
+            <li>Linguas: Português (nativa), Inglês</li>
+            <li>Linguagens de Programação: Kotlin, C, Java, Clojure, HTML/CSS/JS</li>
+        </ul>
     </div>
 </article>
 </div>
@@ -37,18 +37,15 @@
     <h1>Projetos</h1>
 
     <div class="content">
+        {% for p in projects %}
         <div class="project dark">
             <div></div>
-            <span>Lorem</span>
+            <div>
+                <p>{{ p.nome }}</p>
+                <p>{{ p.descricao|truncatechars:20 }}</p>
+            </div>
         </div>
-        <div class="project dark">
-            <div></div>
-            <span>Lorem</span>
-        </div>
-        <div class="project dark">
-            <div></div>
-            <span>Lorem</span>
-        </div>
+        {% endfor %}
     </div>
 </article>
 

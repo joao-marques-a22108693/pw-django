@@ -7,8 +7,7 @@
 
 {% block content %}
 <form class="container dark login" action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-
+    <input type="text" name="next" value="{{ next }}" style="display: none">
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Login">
