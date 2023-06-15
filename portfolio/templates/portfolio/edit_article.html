@@ -1,0 +1,33 @@
+{% extends 'portfolio/skel.html' %}
+{% load static %}
+
+{% block header %}
+<a href="{% url 'index' %}#second">Sobre</a>
+<a href="{% url 'index' %}#third">Projetos</a>
+<a href="{% url 'index' %}#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block menu %}
+<a href="{% url 'index' %}#second">Sobre</a>
+<a href="{% url 'index' %}#third">Projetos</a>
+<a href="{% url 'index' %}#forth">PW</a>
+<a href="{% url 'playground' %}">Playground</a>
+{% endblock %}
+
+{% block content %}
+<div class="container dark">
+    <div class="row">
+        <h1>Editar artigo</h1>
+    </div>
+
+    <form action="{% url 'edit' artigo.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Submeter">
+    </form>
+</div>
+
+<script src="{% static 'portfolio/js/global.js' %}"></script>
+{% endblock %}

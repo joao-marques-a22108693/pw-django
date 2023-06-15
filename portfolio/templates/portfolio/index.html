@@ -25,10 +25,50 @@
     <h2>Aptidões</h2>
 
     <div class="content">
-        <ul>
-            <li>Linguas: Português (nativa), Inglês</li>
-            <li>Linguagens de Programação: Kotlin, C, Java, Clojure, HTML/CSS/JS</li>
-        </ul>
+        <div class="bar-container">
+            <div>
+                <span>Português: 100%</span>
+                <div class="bar-parent" data-pct="100">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>Inglês: 90%</span>
+                <div class="bar-parent" data-pct="90">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>Kotlin: 85%</span>
+                <div class="bar-parent" data-pct="85">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>Java: 85%</span>
+                <div class="bar-parent" data-pct="85">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>C: 80%</span>
+                <div class="bar-parent" data-pct="80">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>HTML/CSS/JS: 60%</span>
+                <div class="bar-parent" data-pct="60">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div>
+                <span>Clojure: 40%</span>
+                <div class="bar-parent" data-pct="40">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </article>
 </div>
@@ -38,13 +78,26 @@
 
     <div class="content">
         {% for p in projects %}
-        <div class="project dark">
-            <div></div>
+        <a class="project dark" {% if p.git %} href="{{ p.git }}" {% endif %}>
+            <div {% if p.imagem %} style="background-image: url('{{ p.imagem.url }}'); background-size: cover" {% endif %}></div>
             <div>
                 <p>{{ p.nome }}</p>
-                <p>{{ p.descricao|truncatechars:20 }}</p>
+                <p>{{ p.descricao|truncatechars:30 }}</p>
             </div>
-        </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <h2>TFCs interessantes</h2>
+    <div class="content">
+        {% for p in tfcs %}
+        <a class="tfc dark" href="{{ p.link }}">
+            <div></div>
+            <div>
+                <p>{{ p.titulo }}</p>
+                <p>{{ p.descricao|truncatechars:30 }}</p>
+            </div>
+        </a>
         {% endfor %}
     </div>
 </article>
@@ -55,18 +108,25 @@
     <div class="content">
         <a class="project dark" href="https://jajms.pythonanywhere.com/index.html">
             <div></div>
-            <span>Lab 1/2</span>
+            <div>
+                <p>Lab 1/2</p>
+            </div>
         </a>
         <a class="project dark" href="https://jajms.pythonanywhere.com/lab3/index.html">
             <div></div>
-            <span>Lab 3</span>
+            <div>
+                <p>Lab 3</p>
+            </div>
         </a>
         <a class="project dark" href="https://jajms.pythonanywhere.com/lab4/index.html">
             <div></div>
-            <span>Lab 4</span>
+            <div>
+                <p>Lab 4</p>
+            </div>
         </a>
     </div>
 </article>
 
 <script src="{% static 'portfolio/js/global.js' %}"></script>
+<script src="{% static 'portfolio/js/index.js' %}"></script>
 {% endblock %}

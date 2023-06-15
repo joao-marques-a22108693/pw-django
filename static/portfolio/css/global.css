@@ -124,6 +124,11 @@
     overflow: hidden;
 }
 
+#menu.light {
+    background-color: white;
+    color: black;
+}
+
 #menu-toggle, .hidden {
     display: none!important;
 }
@@ -139,6 +144,11 @@
 
 .material-symbols-outlined.dark {
     color: white;
+    vertical-align: middle;
+}
+
+.material-symbols-outlined.light {
+    color: black;
     vertical-align: middle;
 }
 
@@ -188,6 +198,10 @@
         bottom: 0;
         left: 0;
         border-bottom: 1px solid white;
+    }
+
+    #menu.light > *:not(:last-child)::after {
+        border-bottom: 1px solid black;
     }
 
     #menu > a {
@@ -280,7 +294,7 @@ body.light {
     background-color: white;
     color: black;
 
-    width: 200px;
+    width: fit-content;
     height: 70px;
     margin: 10px 5px;
 
@@ -305,6 +319,10 @@ body.light {
 .project > div:nth-child(2), .tfc > div:nth-child(2) {
     display: flex;
     flex-direction: column;
+
+    justify-content: space-around;
+
+    padding: 0 1%
 }
 
 .project p:nth-child(2), .tfc > p, .tfc > a {
@@ -427,4 +445,40 @@ footer {
 
 iframe {
     align-self: center;
-}   
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-evenly;
+}
+
+.bar-container > div {
+    margin-bottom: 1%;
+}
+
+.bar-parent {
+    height: 3vh;
+    width: 85%;
+}
+
+.bar {
+    background-color: mediumpurple;
+    height: 3vh;
+
+    border-radius: 20px;
+}
+
+@keyframes bar-anim {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

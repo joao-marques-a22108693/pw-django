@@ -67,3 +67,14 @@ class PrevisaoMetereologica(models.Model):
 
     def __str__(self):
         return f'Temperatura Mínima: {self.temp_min}, Temperatura Máxima: {self.temp_max}'
+
+
+class TFC(models.Model):
+    titulo = models.TextField()
+    descricao = models.TextField(max_length=500)
+    autor = models.ManyToManyField(Pessoa, related_name='autor')
+    orientador = models.ManyToManyField(Pessoa, related_name='orientador')
+    ano = models.IntegerField()
+    link = models.TextField()
+    github = models.TextField(null=True, blank=True)
+    video = models.TextField(null=True, blank=True)

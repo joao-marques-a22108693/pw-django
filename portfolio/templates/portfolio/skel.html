@@ -49,12 +49,12 @@
 
         <div id="menu" class="dark">
             <button class="image-button" onclick="toggle_menu()">
-                <span class="material-symbols-outlined" style="color: white;">close</span>
+                <span class="material-symbols-outlined dark">close</span>
             </button>
             {% block menu %}
-            <a href="{% url 'index' %}/#second">Sobre</a>
-            <a href="{% url 'index' %}/#third">Projetos</a>
-            <a href="{% url 'index' %}/#forth">PW</a>
+            <a href="{% url 'index' %}#second">Sobre</a>
+            <a href="{% url 'index' %}#third">Projetos</a>
+            <a href="{% url 'index' %}#forth">PW</a>
             <a href="{% url 'playground' %}">Playground</a>
             <a href="{% url 'blog' %}">Blog</a>
             {% endblock %}

@@ -10,7 +10,8 @@ urlpatterns = [
     path("blog/comment/<int:artigo_id>", views.comment_view, name="comment"),
     path("blog/comment/<int:comentario_id>/like", views.comment_like_view, name="comment_like"),
     path("admin/", views.admin_view, name="admin"),
-    path("new/", views.new_article_view, name="new"),
+    path("blog/new/", views.new_article_view, name="new"),
+    path("blog/edit/<int:artigo_id>", views.edit_article_view, name="edit"),
     path("login/", views.login_view, name="login"),
     path("login/<str:url>", views.login_view, name="login_args")
 ]

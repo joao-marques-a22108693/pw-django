@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Area, Artigo, Comentario, Projeto
+from .models import Area, Artigo, Comentario, Projeto, TFC
 from .forms import ArtigoForm, ComentarioForm
 
 
@@ -19,7 +19,7 @@ def blog_view(request):
 
 
 def index_view(request):
-    return render(request, 'portfolio/index.html', context={'projects': Projeto.objects.all()})
+    return render(request, 'portfolio/index.html', context={'projects': Projeto.objects.all(), 'tfcs': TFC.objects.all()})
 
 
 def playground_view(request):
@@ -34,11 +34,32 @@ def admin_view(request):
 def new_article_view(request):
     if request.method == "POST":
         form = ArtigoForm(request.POST, request.FILES)
+
+        if not form.is_valid():
+            return HttpResponse(status=400)
+
         form.save()
 
         return redirect('blog')
 
     return render(request, 'portfolio/new_article.html', context={'form': ArtigoForm()})
+
+
+@login_required()
+def edit_article_view(request, artigo_id):
+    if request.method == "POST":
+        inst = get_object_or_404(Artigo, id=artigo_id)
+        form = ArtigoForm(request.POST, request.FILES, instance=inst)
+
+        if not form.is_valid():
+            return HttpResponse(status=400)
+
+        form.save()
+
+        return redirect('article', artigo_id=artigo_id)
+
+    inst = get_object_or_404(Artigo, id=artigo_id)
+    return render(request, 'portfolio/edit_article.html', context={'form': ArtigoForm(instance=inst), 'artigo': inst})
 
 
 def article_view(request, artigo_id):
