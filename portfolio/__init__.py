@@ -45,4 +45,4 @@ def scrape():
         sleep(3600)
 
 
-# Thread(target=scrape, daemon=True).start()
+Thread(target=scrape, daemon=True).start()
