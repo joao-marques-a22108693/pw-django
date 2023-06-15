@@ -21,13 +21,28 @@
 
     <button onclick="comecarComentario()" style="width: fit-content; margin: 2% auto;">Novo comentário</button>
 
-    <form action="{% url 'comment' artigo.id %}" name="form" class="hidden">
+    <form action="{% url 'comment' artigo.id %}" method="post" name="form" class="hidden artigo-container">
         {% csrf_token %}
 
         {{ form.as_p }}
 
         <input type="submit" value="Submeter!">
     </form>
+
+    <div class="artigo-container">
+        {% for c in artigo.comentario_set.all %}
+            <div class="artigo">
+                <div>
+                    <h2>{{ c.autor }}</h2>
+                    <p>{{ c.texto }}</p>
+                </div>
+                <div class="like">
+                    <img src="{% static 'portfolio/img/like.png' %}" alt="" onclick="like(this, {{ c.id }})">
+                    <span>{{ c.likes }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <script src="{% static 'portfolio/js/article.js' %}"></script>

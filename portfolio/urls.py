@@ -8,6 +8,8 @@ urlpatterns = [
     path("blog/<int:artigo_id>", views.article_view, name="article"),
     path("blog/like/<int:artigo_id>", views.like_view, name="like"),
     path("blog/comment/<int:artigo_id>", views.comment_view, name="comment"),
+    path("blog/comment/<int:comentario_id>/like", views.comment_like_view, name="comment_like"),
     path("admin/", views.admin_view, name="admin"),
-    path("new/", views.new_article_view, name="new")
+    path("new/", views.new_article_view, name="new"),
+    path("login/", views.login_view, name="login")
 ]
