@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Area, Artigo, Comentario, Projeto, TFC, Banda
+from .models import Area, Artigo, Comentario, Projeto, TFC
 from .forms import ArtigoForm, ComentarioForm
 
 
