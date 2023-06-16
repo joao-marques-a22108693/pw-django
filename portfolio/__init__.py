@@ -16,8 +16,8 @@ def scrape():
     while True:
         scraper = BeautifulSoup(requests.get('https://www.tempo.pt/lisboa.htm').text, features='html.parser')
 
-        temp_min = [t.text[:-1] for t in scraper.find_all(class_='minima')[:7]]
-        temp_max = [t.text[:-1] for t in scraper.find_all(class_='maxima')[:7]]
+        temp_min = [int(t.text[:-1]) for t in scraper.find_all(class_='minima')[:7]]
+        temp_max = [int(t.text[:-1]) for t in scraper.find_all(class_='maxima')[:7]]
 
         temps = list(zip(temp_min, temp_max))
 
