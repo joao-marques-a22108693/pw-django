@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Area, Artigo, Comentario, Projeto, TFC
+from .models import Area, Artigo, Comentario, Projeto, TFC, Banda
 from .forms import ArtigoForm, ComentarioForm
 
 
@@ -60,6 +60,13 @@ def edit_article_view(request, artigo_id):
 
     inst = get_object_or_404(Artigo, id=artigo_id)
     return render(request, 'portfolio/edit_article.html', context={'form': ArtigoForm(instance=inst), 'artigo': inst})
+
+
+@login_required()
+def delete_article_view(request, artigo_id):
+    obj = get_object_or_404(Artigo, id=artigo_id)
+    obj.delete(keep_parents=True)
+    return redirect('blog')
 
 
 def article_view(request, artigo_id):
